@@ -1,0 +1,19 @@
+{
+  "name": "sao_camilo_hackathon_11.2024",
+  "version": "1.0.0",
+  "description": "Somos estudantes do Instituto Mauá de Tecnologia e, em conjunto com os da São Camilo, pudemos propor um site para solucionar o problema de Doação de Sangue no 1°Hackathon de saúde dessa parceiria.",
+  "main": "backend.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon backend.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

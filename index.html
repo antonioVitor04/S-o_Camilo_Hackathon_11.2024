@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pré-Cadastro de Doação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Verificação de Elegibilidade</h2>
+        <form id="eligibilityForm">
+            <label for="dob">Data de Nascimento:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="weight">Peso (em kg):</label>
+            <input type="number" id="weight" name="weight" required>
+
+            <label for="sex">Sexo:</label>
+            <select id="sex" name="sex" required>
+                <option value="">Selecione</option>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+            </select>
+
+            <label for="lastDonation">Data da Última Doação:</label>
+            <input type="date" id="lastDonation" name="lastDonation" required>
+
+            <fieldset>
+                <legend>Condições de Saúde</legend>
+
+                <label class="checkbox-container">
+                    <span>Câncer</span>
+                    <input class="checkbox" type="checkbox" name="healthConditions" value="cancer">
+                </label>
+
+                <label for="diseases">Outras Doenças:</label>
+                <select name="diseases" id="diseases">
+                    <option value="">Selecione</option>
+                    <option value="infec">Doenças infecciosas transmissíveis pelo sangue</option>
+                    <option value="autoimune">Doenças autoimunes</option>
+                    <option value="hematologica">Doenças Hematológicas</option>
+                    <option value="cardiaca">Doenças Cardíacas</option>
+                    <option value="renal">Doenças Renais</option>
+                    <option value="endocrina">Doenças Endócrinas</option>
+                    <option value="respiratoria">Doenças Respiratórias</option>
+                </select>
+
+                <label for="medicamentos">Uso de Medicamentos:</label>
+                <select name="medicamentos" id="medicamentos">
+                    <option value="">Selecione</option>
+                    <option value="anticoagulante">Anticoagulantes</option>
+                    <option value="hepatite">Medicamentos para Hepatite</option>
+                    <option value="hiv">Medicamentos para HIV</option>
+                    <option value="imunossupressor">Imunossupressores</option>
+                </select>
+
+            </fieldset>
+
+            <p id="avisoDoenca" style="color: red;"></p>
+            <button type="submit">Verificar Elegibilidade</button>
+        </form>
+        <p id="eligibilityMessage"></p>
+    </div>
+
+    <script>
+        document.getElementById('eligibilityForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const dob = new Date(formData.get('dob'));
+            const weight = parseInt(formData.get('weight'), 10);
+            const sex = formData.get('sex');
+            const lastDonation = formData.get('lastDonation') ? new Date(formData.get('lastDonation')) : null;
+            const healthConditions = formData.getAll('healthConditions');
+            const diseases = formData.get('diseases');
+            const medications = formData.get('medicamentos');
+            const today = new Date();
+            
+            // Calcula a idade correta considerando o mês e o dia
+            let age = today.getFullYear() - dob.getFullYear();
+            const monthDiff = today.getMonth() - dob.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+
+            let eligibilityMessage = "";
+
+            // Verificação de idade
+            if (age < 16) {
+                eligibilityMessage += "Idade mínima para doação é 16 anos.<br>";
+            } else if (age === 16 || age === 17) {
+                eligibilityMessage += "Para menores de 18 anos, é necessário autorização dos pais ou responsáveis.<br>";
+            } else if (age > 60 && !hasDonatedBefore()) {
+                eligibilityMessage += "Para doadores com mais de 60 anos, apenas quem já doou antes pode doar até 69 anos.<br>";
+            }
+
+            // Verificação de peso
+            if (weight < 50 || weight > 140) {
+                eligibilityMessage += "Peso fora do limite. O peso deve estar entre 50 kg e 140 kg.<br>";
+            }
+
+            // Verificação de condições de saúde
+            if (healthConditions.includes("cancer") || diseases || medications) {
+                eligibilityMessage += "Atenção: Condições de saúde e uso de medicamentos podem afetar a elegibilidade para doação."
+            } 
+
+            // Verificação do intervalo da última doação
+            if (lastDonation && !checkDonationInterval(sex, lastDonation)) {
+                eligibilityMessage += "O intervalo desde a última doação não é suficiente.<br>";
+            }
+
+            // Exibe as mensagens de erro ou redireciona para o login
+            if (eligibilityMessage) {
+                document.getElementById('eligibilityMessage').innerHTML = eligibilityMessage;
+            } else {
+                document.getElementById('eligibilityMessage').innerHTML = ""; // Limpa qualquer mensagem anterior
+                window.location.href = "login.html"; // Redireciona apenas se não houver mensagens de erro
+            }
+        });
+
+        function hasDonatedBefore() {
+            return confirm("Você já doou sangue anteriormente?");
+        }
+
+        function checkDonationInterval(sex, lastDonation) {
+            const today = new Date();
+            const oneDayInMilliseconds = 1000 * 60 * 60 * 24;
+            const diffDays = Math.floor((today - lastDonation) / oneDayInMilliseconds);
+
+            if (sex === "masculino" && diffDays < 60) {
+                return false;
+            } else if (sex === "feminino" && diffDays < 90) {
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>
