@@ -5,12 +5,14 @@
 
 .navbar {
     background-color: #fff;
-    height: 70px;
-    margin-top: 10px;
+    height: 10px;
+    margin-top: 5px;
+    padding: 15px 15px;
 }
 
 .box{
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra só na parte inferior */
+    padding: 20px;
 }
 
 /* Logo */
@@ -20,8 +22,7 @@
     font-size: 24px;
     transition: 0.3s color;
     margin-left: 18%;
-    margin-bottom: 5%;
-    margin-top: 10px;
+    margin-top: 70px;
 }
 
 /* Botão de Doação */
@@ -63,7 +64,6 @@
     color: #666777;
     font-weight: 500;
     position: relative;
-    margin-bottom: 30%;
 }
 
 .nav-link:hover, .nav-link.active {
