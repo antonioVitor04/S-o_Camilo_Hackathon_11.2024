@@ -8,11 +8,13 @@
     height: 10px;
     margin-top: 5px;
     padding: 15px 15px;
+    z-index: 1;
 }
 
 .box{
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra só na parte inferior */
     padding: 20px;
+    z-index: -1;
 }
 
 /* Logo */
@@ -202,4 +204,63 @@
 /* Remove seta do dropdown */
 .nav-item.dropdown > .nav-link::after {
     display: none; /* Esconde o ícone de seta */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #FF5555;
+    color: white;
+    margin-top: 150px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.info-section {
+    background: white;
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-top: 40px;
+}
+
+h2, h3 {
+    color: #FF5555;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.statistic {
+    margin-top: 20px;
+}
+
+a {
+    color: #FF5555;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+em {
+    font-size: 0.9em;
+    color: #555;
 }
