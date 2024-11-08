@@ -1,0 +1,205 @@
+/* Estilos Gerais */  
+*{ 
+    font-family: "Roboto", sans-serif; 
+}
+
+.navbar {
+    background-color: #fff;
+    height: 10px;
+    margin-top: 5px;
+    padding: 15px 15px;
+}
+
+.box{
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra só na parte inferior */
+    padding: 20px;
+}
+
+/* Logo */
+.logo {
+    font-weight: 500;
+    color: #FF5555;
+    font-size: 24px;
+    transition: 0.3s color;
+    margin-left: 18%;
+    margin-top: 70px;
+}
+
+/* Botão de Doação */
+.doe-button {
+    background-color: #FF5555;
+    color: #fff;
+    font-size: 15px;
+    padding: 4px 15px;
+    padding-top: 40px;
+    padding-bottom: 10px;
+    border-radius: 0px 0px 5px 5px;
+    margin-right: 12%;
+    text-decoration: none;
+    transition: 0.3s background-color;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.doe-button:hover {
+    background-color: #FF5555;
+}
+
+/* Toggler do Navbar */
+.navbar-toggler {
+    border: none;
+    font-size: 1.25rem;
+}
+
+.navbar-toggler:focus, .btn-close:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+/* Links da Navbar */
+.nav-link {
+    color: #666777;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #000;
+}
+
+/* Remove seta do dropdown */
+.nav-item.dropdown > .nav-link::after {
+    display: none; /* Esconde o ícone de seta */
+}
+
+/* Dropdown Menu Inline */
+.nav-item.dropdown {
+    position: relative;
+}
+
+.nav-item .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 70%; /* Reduzido para aproximar o menu do título principal */
+    left: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item:hover .dropdown-menu {
+    display: block; /* Exibe o menu ao passar o mouse */
+}
+
+.dropdown-menu .dropdown-item {
+    padding: 5px 0;
+    color: #666777;
+    font-weight: 500;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    color: #000;
+    background: none;
+}
+
+/* Para espaçar itens do dropdown */
+.dropdown-item {
+    display: block;
+    padding-left: 20px;
+}
+
+@media (min-width: 991px) {
+    .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0%;
+        height: 2px;
+        background-color: #FF5555;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::before {
+        width: 100%;
+        visibility: visible;
+    }
+}
+
+/* Outros estilos */
+.container2 {
+    text-align: right;
+    color: white;
+    padding-right: 200px;
+    padding-left: 15px;
+}
+
+.offcanvas-body {
+    margin-right: 1%;
+    margin-left: 5%;
+}
+
+/* Login Button */
+.login-button {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    color: #FF5555;
+    border-radius: 50%;
+    font-size: 20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 5px;
+
+    border: 2px solid #FF5555;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #FF5555;
+    color: white;
+}
+
+/* Seção Hero */
+.hero-section::before {
+    background-color: rgba(0, 0, 0, 0.6);
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.hero-section .container {
+    height: 100vh;
+    z-index: 1;
+    position: relative;
+}
+
+.hero-section h1 {
+    font-size: 1.5em;
+}
+
+.hero-section h2 {
+    font-size: 1.2em;
+}
+
+.container {
+    text-align: center;
+}
+
+/* Remove seta do dropdown */
+.nav-item.dropdown > .nav-link::after {
+    display: none; /* Esconde o ícone de seta */
+}
