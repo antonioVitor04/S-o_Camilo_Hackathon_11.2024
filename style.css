@@ -1,0 +1,56 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 60px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+h2 {
+    text-align: center;
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+}
+
+form input, form select, form button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+fieldset {
+    margin-top: 15px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox{
+    width: 20%;
+}
+
+.checkbox-container, #Diseases {
+    margin: 10px;
+}
+
