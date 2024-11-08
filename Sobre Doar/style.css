@@ -206,61 +206,48 @@
     display: none; /* Esconde o ícone de seta */
 }
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
-
 header {
     text-align: center;
     padding: 20px;
-    background-color: #FF5555;
+    background-color: #9A181C;
     color: white;
     margin-top: 150px;
 }
 
-h1 {
-    margin: 0;
-}
-
-.info-section {
-    background: white;
-    margin: 20px auto;
+/* Cabeçalho */
+.cabecalho {
+    margin-top: 50px;
+    display: flex;
     padding: 20px;
-    width: 80%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    margin-top: 40px;
+    background-color: #EDEDED; /* Retângulo cinza */
+    margin-bottom: 30px;
 }
 
-h2, h3 {
-    color: #FF5555;
+.cabecalho img {
+    flex: 1;
+}
+.cabecalho .img-fluid {
+    width: 100%; 
+    height: 380px; 
+    object-fit: cover; 
+    border-radius: 5px; 
 }
 
-ul {
-    list-style-type: disc;
-    padding-left: 20px;
+
+.conteudo-cabecalho {
+    width: 50%;
+    padding: 10px 20px;    
 }
 
-.statistic {
-    margin-top: 20px;
+h1 .quem-somos {
+    margin-top: 0;
+    font-size: 35px;
 }
 
-a {
-    color: #FF5555;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-em {
-    font-size: 0.9em;
-    color: #555;
+h2.quem-somos {
+    margin: 10px 0;
+    font-size: 35px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+    color: #313131;
 }
